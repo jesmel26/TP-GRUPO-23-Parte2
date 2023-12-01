@@ -1,0 +1,193 @@
+* {
+    padding: 0;
+}
+
+body, main {
+    /*border: 3px solid blueviolet;*/
+    margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+body {
+    background-color: antiquewhite;
+    margin: 0;
+}
+
+header {
+    width: 100%;            /*Hace que el ancho minimo de este elemento sea el del viewport (min-width o width ?)*/
+    min-height:max-content;
+    /* border: 3px solid blue; */
+    background-color: rgba(255, 127, 80, 0.9);  /*Solo le da 0.9 de transparencia al fondo, no al contenido*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+/* main {
+    margin: 0 20% 3rem 5%;
+    margin-top: 60px;
+    padding-top: 20px;
+    background-color: antiquewhite;
+    font-family: "Roboto", sans-serif;
+} */
+
+main {
+    margin: 0 0 0 0;
+    margin-top: 60px;
+    padding-top: 20px;  /*Para que no se solape con el menu que esta fixed */
+    background-color: antiquewhite;
+    font-family: "Roboto", sans-serif;
+    overflow: auto;
+    /*border: 3px solid green;*/
+}
+
+main>div {
+    float: left;
+    width: 75%;
+    margin: 0 0 0.5rem 0;
+    height: auto;
+    /*border: 2px solid black;*/
+}
+
+main>aside {
+    float: left;
+    /*min-width: 25%;*/
+    width: 24%;
+    margin: 0 0 0.5rem 0;
+    min-height: 1000px;
+    height: auto;
+    border: 2px solid red;
+}
+
+.titulo-principal {
+    font-family: 'Signika Negative', sans-serif;
+    margin-right: 25%;
+    margin-left: 15%;
+    color: black;
+    text-align: center;
+}
+
+.seccion-interna {
+    margin: 1rem 1rem 2rem 2rem;
+    font-family: 'Signika Negative', sans-serif;
+    color: rgb(122, 10, 10);
+    text-align: left;
+    width: 75%;
+}
+
+footer {
+    background-color:rgb(208, 160, 143);
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    padding: 0.5rem 0 1rem 0;
+    width: 100%;
+}
+
+/*Logo y Menu Navegación*/
+
+.header-logo {
+    margin: 0 3rem 0 10%;
+    display: inline-block;
+}
+
+.header-menubar {
+    display: inline-block;
+}
+
+.header-menubar ul{
+    margin-left: 0rem;
+    list-style: none;
+    vertical-align: middle;
+}
+
+.header-menubar li {
+    float: left;
+    margin: 0 0rem 0.75rem 1.2rem;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.header-menubar a {
+    text-decoration: none;
+    color: black;
+}
+
+.header-menubar a:hover {
+    background: burlywood;
+}
+
+
+/*Footer -  Contacto y Redes Sociales*/
+
+.contact-icon {
+    box-sizing: content-box;
+    width: 1.75rem;
+    margin: 0 0.5rem 0 0rem;
+    vertical-align: sub;
+}
+
+.contact-block {
+    display: inline-block;
+    margin: 0.5rem 3.5rem 0 3rem;
+}
+
+.contact-block ul {
+    list-style: none;
+}
+
+.contact-block li {
+    margin: 0.5rem 2rem 0.5rem 0;
+    vertical-align: super;
+    display: inline-block;
+    font-size: 0.85rem;
+}
+
+.contact-block a {
+    text-decoration: none;
+    color: black;
+}
+
+.contact-block a:hover {
+    color: azure;
+}
+
+#redes-sociales {
+    margin-right: 0;
+}
+
+/*Iframe - Video en 360°*/
+
+.first-container {          /*Para ajustar el tamaño maximo/minimo del iframe y para centrarlo*/
+    margin: 2rem 25% 2rem 15%;
+    max-width: 700px;
+    min-width: 250px;
+}
+
+.iframe-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+#video-360 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#animacion {
+    margin: 0 25% 2rem 15%;
+    text-align: center;
+    color: cadetblue;
+    font-weight: bolder;
+}
+
+
