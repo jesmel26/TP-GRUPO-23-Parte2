@@ -147,7 +147,7 @@ def responder_mensaje(id):
     else:
         return jsonify({"mensaje": "Mensaje no encontrado"}), 403
 
-mensaje.enviar_mensaje("Matias", "Seminara", "123456789", "matiasseminara@gmail.com", "excursion 1", "25/11/2023 10:05", "3", "Esta consulta es para ver la conexion a la base de datos")
+#mensaje.enviar_mensaje("Matias", "Seminara", "123456789", "matiasseminara@gmail.com", "excursion 1", "25/11/2023 10:05", "3", "Esta consulta es para ver la conexion a la base de datos")
 #respuesta = mensaje.listar_mensajes()
 #print(mensaje.responder_mensaje(1, "Ya le contesté"))
 # print(mensaje.eliminar_mensaje(1))

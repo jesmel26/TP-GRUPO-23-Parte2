@@ -75,3 +75,15 @@ input[type="submit"]:hover {
     color: rgb(122, 10, 10);
     
 }
+
+#mensajeEnviado{
+    width: 55%;
+    margin: 35px 20% 35px; 
+    text-align: center;
+    font-size: 45px;
+    padding: 20px;
+    background: burlywood;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    color: rgb(122, 10, 10);
+}
