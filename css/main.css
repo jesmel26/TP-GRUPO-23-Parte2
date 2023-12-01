@@ -49,19 +49,9 @@ main>div {
     /*border: 2px solid black;*/
 }
 
-main>aside {
-    float: left;
-    /*min-width: 25%;*/
-    width: 24%;
-    margin: 0 0 0.5rem 0;
-    min-height: 1000px;
-    height: auto;
-    border: 2px solid red;
-}
-
 .titulo-principal {
     font-family: 'Signika Negative', sans-serif;
-    margin-right: 25%;
+    margin-right: 15%;
     margin-left: 15%;
     color: black;
     text-align: center;
@@ -72,7 +62,7 @@ main>aside {
     font-family: 'Signika Negative', sans-serif;
     color: rgb(122, 10, 10);
     text-align: left;
-    width: 75%;
+    width: 80%;
 }
 
 footer {
@@ -103,12 +93,30 @@ footer {
 
 .header-menubar li {
     float: left;
-    margin: 0 0rem 0.75rem 1.2rem;
+    margin: 0 0 0.75rem 1.2rem;
     font-family: 'Lato', sans-serif;
     text-align: center;
     font-size: 1.15rem;
     font-weight: 600;
 }
+
+@media only screen and (max-width: 740px) {
+    .header-menubar li {
+        font-size: 0.75rem;
+        margin: 0 0 1rem 1.2rem;
+    }
+
+    .header-logo {
+        margin: 0 0 0 3%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .contenido-ppal {
+        margin-top: 3rem;
+    }
+}
+
 
 .header-menubar a {
     text-decoration: none;
@@ -119,6 +127,73 @@ footer {
     background: burlywood;
 }
 
+/*Aside - Barra Noticias*/
+
+main>aside {
+    float: left;
+    /*min-width: 25%;*/
+    width: 24%;
+    margin: 0 0 0.5rem 0;
+    height: auto;
+    /*border: 2px solid red;*/
+    background-color: rgba(248, 238, 224, 0.867)
+}
+
+.seccion-noticias {
+    display: flex;
+    flex-direction: column;
+}
+
+.seccion-noticias h3 {
+    font-family: 'Lato', sans-serif;
+    color: rgb(122, 10, 10);
+    font-size: 1.35rem;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.bloque-noticia {
+    margin: 0 0 2rem 0;
+}
+
+.bloque-noticia img {
+    margin: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.bloque-noticia>h4 {
+    text-align: left;
+    margin: 0;
+}
+
+.bloque-noticia a {
+    color:black;
+    text-decoration: none;
+}
+
+.bloque-noticia a:hover {
+    color: red;
+}
+
+@media only screen and (max-width: 410px) {
+    main>aside {
+        display: none; 
+    }
+    main>div {
+        width: 100%; 
+    }
+
+    .contenido-ppal {
+        margin-top: 3rem;
+    }
+
+}
 
 /*Footer -  Contacto y Redes Sociales*/
 
@@ -129,9 +204,14 @@ footer {
     vertical-align: sub;
 }
 
-.contact-block {
+#redes-sociales {
     display: inline-block;
     margin: 0.5rem 3.5rem 0 3rem;
+}
+
+#tel-mail {
+    display: inline-block;
+    margin: 0.5rem 0 0 3rem;
 }
 
 .contact-block ul {
@@ -143,6 +223,16 @@ footer {
     vertical-align: super;
     display: inline-block;
     font-size: 0.85rem;
+}
+
+@media only screen and (max-width: 540px) {
+    .contact-block li {
+        font-size: 0.75rem;
+    }
+
+    .contact-icon {
+        width: 1.5rem;
+    }
 }
 
 .contact-block a {
@@ -161,8 +251,8 @@ footer {
 /*Iframe - Video en 360°*/
 
 .first-container {          /*Para ajustar el tamaño maximo/minimo del iframe y para centrarlo*/
-    margin: 2rem 25% 2rem 15%;
-    max-width: 700px;
+    margin: 2rem 15% 2rem 15%;
+    max-width: 775px;
     min-width: 250px;
 }
 
@@ -184,7 +274,7 @@ footer {
 }
 
 #animacion {
-    margin: 0 25% 2rem 15%;
+    margin: 0 15% 2rem 15%;
     text-align: center;
     color: cadetblue;
     font-weight: bolder;

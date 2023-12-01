@@ -1,19 +1,19 @@
 #news-feed .news-block {
     display: flex;
-    justify-content: space-evenly;
-    width: 90%;
+    justify-content: space-between;
+    width: 95%;
     margin: 5px;
-    padding:5px 0 5px 0
+    padding: 15px 0 5px 0
 }
 
 #news-feed .news-block .left-block{
-    width: 65%;
+    width: 62%;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 #news-feed .news-block .right-block{
     width: 35%;
-    font-family: Arial, Helvetica, sans-serif;    
+    font-family: Arial, Helvetica, sans-serif;
 } 
 
 #news-feed article{
@@ -29,7 +29,7 @@
 
 #news-feed .news-block .right-block article{
     height: 50%;
-
+    justify-content: start;
 }
 
 #news-feed h1{
@@ -37,7 +37,7 @@
     font-family:'Signika Negative', sans-serif ;
     font-size: 40px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 #news-feed h2{
@@ -52,6 +52,21 @@
     color: rgb(24, 23, 23);
 }
 
+@media only screen and (max-width: 601px) {
+    #news-feed h2 {
+        font-size: 18px;
+    }
+    #news-feed h1 {
+        font-size: 30px;
+    }
+    #news-feed p {
+        font-size: 16px;
+    }
+
+}
+
+
+
 #news-feed figure{
     margin: 0;
     margin-bottom: 25px;
@@ -63,4 +78,22 @@
     width: 100%;
     padding-bottom:5 px;
     border-bottom: 1px solid lightgray;
+}
+
+.news-block .block article {
+    height: 300px;
+}
+
+.news-block .block article figure {
+    width: 100%;
+    padding-top: 56%;
+    position: relative;
+}
+
+.news-block .block article figure img{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;    
 }

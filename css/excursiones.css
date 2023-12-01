@@ -44,6 +44,29 @@
 	text-align: justify;
 }
 
+@media only screen and (max-width: 540px) {
+	.contenedor-sobre-excursiones{
+		display: flex;
+		flex-direction: column;
+		justify-content: baseline;
+	}
+	
+	.contenedor .titulo {
+		margin-left: 2rem;
+	}
+
+	.contenedor-sobre-excursiones>img{
+		width: 70%;
+		margin-left: 2rem;
+	}
+
+	.sobre-excursiones .contenido-textos{
+		width: 70%;
+		margin-left: 2rem;
+	}
+	
+}
+
 .portafolio{
 	background:#c08261;
 
