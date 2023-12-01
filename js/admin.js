@@ -1,4 +1,3 @@
-admin.js
 document.getElementById('btnTraerMensajes').addEventListener('click', () => {
     fetch('http://127.0.0.1:5000/mensajes')
       .then(response => response.json())
@@ -15,6 +14,9 @@ document.getElementById('btnTraerMensajes').addEventListener('click', () => {
             <td>${dato.apellido}</td>
             <td>${dato.nombre}</td>
             <td>${dato.email}</td>
+            <td>${dato.excursion}</td>            
+            <td>${dato.fecha_viaje}</td>
+            <td>${dato.personas}</td>
             <td>${dato.fecha_envio}</td>
             <td>${dato.mensaje}</td>
             <td>${dato.leido}</td>

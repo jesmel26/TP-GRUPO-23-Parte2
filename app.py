@@ -51,6 +51,9 @@ class Mensaje:
             apellido varchar(30) NOT NULL,
             telefono varchar(15) NOT NULL,
             email varchar(60) NOT NULL,
+            excursion varchar(30) NOT NULL,
+            fecha_viaje datetime NOT NULL,
+            personas varchar(15) NOT NULL,
             mensaje varchar(500) NOT NULL,
             fecha_envio datetime NOT NULL,
             leido tinyint(1) NOT NULL,
@@ -66,10 +69,10 @@ class Mensaje:
         self.cursor = self.conn.cursor(dictionary=True)
         
     #----------------------------------------------------------------
-    def enviar_mensaje(self, nombre, apellido, telefono, email, consulta):
-        sql = "INSERT INTO mensajes(nombre, apellido, telefono, email, mensaje, fecha_envio) VALUES (%s, %s, %s, %s, %s, %s)"
+    def enviar_mensaje(self, nombre, apellido, telefono, email, excursion, fecha_viaje, personas, consulta):
+        sql = "INSERT INTO mensajes(nombre, apellido, telefono, email, excursion, fecha_viaje, personas, mensaje, fecha_envio) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
         fecha_envio = datetime.datetime.now()
-        valores = (nombre, apellido, telefono, email, consulta, fecha_envio)
+        valores = (nombre, apellido, telefono, email, excursion, fecha_viaje, personas, consulta, fecha_envio)
         self.cursor.execute(sql, valores)        
         self.conn.commit()
         return True
@@ -123,9 +126,12 @@ def agregar_producto():
     apellido = request.form['apellido']
     telefono = request.form['telefono']
     email = request.form['email']
+    excursion = request.form['excursion']
+    fecha_viaje = request.form['fecha_viaje']
+    personas = request.form['personas']
     consulta = request.form['mensaje']  
 
-    if mensaje.enviar_mensaje(nombre, apellido, telefono, email, consulta):
+    if mensaje.enviar_mensaje(nombre, apellido, telefono, email, excursion, fecha_viaje, personas, consulta):
         return jsonify({"mensaje": "Mensaje agregado"}), 201
     else:
         return jsonify({"mensaje": "No fue posible registrar el mensaje"}), 400  
@@ -141,7 +147,7 @@ def responder_mensaje(id):
     else:
         return jsonify({"mensaje": "Mensaje no encontrado"}), 403
 
-#mensaje.enviar_mensaje("Matias", "Seminara", "123456789", "matiasseminara@gmail.com", "Esta consulta es para ver la conexion a la base de datos")
+mensaje.enviar_mensaje("Matias", "Seminara", "123456789", "matiasseminara@gmail.com", "excursion 1", "25/11/2023 10:05", "3", "Esta consulta es para ver la conexion a la base de datos")
 #respuesta = mensaje.listar_mensajes()
 #print(mensaje.responder_mensaje(1, "Ya le contesté"))
 # print(mensaje.eliminar_mensaje(1))
