@@ -76,7 +76,7 @@ input[type="submit"]:hover {
     
 }
 
-.mensajeEnviado {
+#mensajeEnviado {
     text-align: center;
     color: rgb(10, 122, 105);
     font-size: 30px;
