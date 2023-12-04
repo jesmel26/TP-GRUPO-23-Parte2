@@ -1,24 +1,14 @@
 #--------------------------------------------------------------------
-# Instalar con pip install Flask
 from flask import Flask, request, jsonify
-
-# Instalar con pip install flask-cors
 from flask_cors import CORS
-
-# Instalar con pip install mysql-connector-python
 import mysql.connector
-
-# No es necesario instalar, es parte del sistema standard de Python
 import os
 import time, datetime
 #--------------------------------------------------------------------
 
 app = Flask(__name__)
 
-# Permitir acceso a la app desde cualquier origen externo con CORS
-
 CORS(app, resources={r"/*": {"origins": "*"}}) 
-
 
 class Mensaje:
     def __init__(self, host_, user_, password_, database_):
@@ -82,7 +72,6 @@ class Mensaje:
             self.cursor = self.conn.cursor()
             self.cursor.execute("SELECT MAX(id) AS max_id FROM mensajes")
             maxid = self.cursor.fetchone()
-            # print(maxid[0])                # maxid[0] sería el primer valor de esa tupla (el unico que devuelve MAX(id))
             self.cursor.close()
             self.cursor = self.conn.cursor(dictionary=True)
             print("-"*20)
@@ -116,23 +105,19 @@ class Mensaje:
          return self.cursor.fetchone()
     
 
-mensaje = Mensaje("localhost", "root", "", "clientes")  # Objeto de clase Mensaje creado
+# Objeto de clase Mensaje creado
+mensaje = Mensaje("subtrooper14.mysql.pythonanywhere-services.com", "subtrooper14", "Comision23501", "subtrooper14$clientes")
 
-# A continuación están los métodos que serán utilizados por el front-end al acceder a las distintas rutas de la @app con los methods GET, POST, PUT y DELETE, para así poder leer, agregar, modificar o eliminar mensajes en la BD de clientes (desde el formulario usado por los clientes o desde la pagina de admin).
-
-# Para probar los metodos de las rutas de la @app con POSTMAN, elegir el BROWSER Agent de la web de POSTMAN, no usar ni el cloud, ni el desktop. Con POSTMAN se pueden simular acciones sin necesidad de tener el front end armado.
-
-# Con los metodos POST y GET debo retornar un JSON y un codigo para saber si se ejecutó satisfactoriamente lo que intenté.
 
 #--------------------------------------------------------------------
 @app.route("/mensajes", methods=["GET"])
-def listar_mensajes():                      # este es la definicion de un metodo de @app.route, se puede llamar igual
-    respuesta = mensaje.listar_mensajes()   # esta es la invocacion al metodo de la clase Mensajes, aunque se llame igual
-    return jsonify(respuesta)               # jsonify transforma a un objeto de python en un objeto JSON
+def listar_mensajes():                      
+    respuesta = mensaje.listar_mensajes()   
+    return jsonify(respuesta)               
 
 
 #--------------------------------------------------------------------
-@app.route("/mensajes", methods=["POST"])   # Mientras que "methods" sea distinto, la ruta puede ser exactamente igual
+@app.route("/mensajes", methods=["POST"])
 def agregar_producto():
     #Recojo los datos del formulario
     nombre = request.form['nombre']
@@ -144,33 +129,21 @@ def agregar_producto():
     comentario_cliente = request.form['comentarios']
 
     if mensaje.enviar_mensaje(nombre, email, telefono, excursion, fecha_viaje, cant_personas, comentario_cliente):
-        return jsonify({"mensaje": "Mensaje agregado"}), 201        # Devulevo 2 datos: un JSON y un codigo 201
+        return jsonify({"mensaje": "Mensaje agregado"}), 201
     else:
         return jsonify({"mensaje": "No fue posible registrar el mensaje"}), 400
   
 
 #--------------------------------------------------------------------
-@app.route("/mensajes/<int:id>", methods=["PUT"])   # <int:id> tomara un valor entero en la ruta y eso será "id"
+@app.route("/mensajes/<int:id>", methods=["PUT"])
 def responder_mensaje(id):
     #Desde la página admin, ingreso la gestión
-    gestion = request.form.get("gestion")   # se usa .form.get(), en vez de .form[]: "use it if the key might not exist"
+    gestion = request.form.get("gestion")
     
     if mensaje.responder_mensaje(id, gestion):
         return jsonify({"mensaje": "Mensaje modificado"}), 200
     else:
         return jsonify({"mensaje": "Mensaje no encontrado"}), 403
-
-
-
-
-
-mensaje.listar_mensajes_prolijo()
-
-# mensaje.enviar_mensaje("Matias", "Seminara", "123456789", "matiasseminara@gmail.com", "Esta consulta es para ver la conexion a la base de datos")
-# respuesta = mensaje.listar_mensajes()
-# print(mensaje.responder_mensaje(1, "Ya le contesté"))
-# print(mensaje.eliminar_mensaje(1))
-# print(mensaje.mostrar_mensaje(2))
 
 
 #--------------------------------------------------------------------
