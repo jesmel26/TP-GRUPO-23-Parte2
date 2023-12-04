@@ -48,27 +48,22 @@ function validarFormulario() {
 }
 
 document.getElementById('formContacto').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevenir el envío por defecto del formulario
+    event.preventDefault();
     
-    // Obtener los datos del formulario en una variable de tipo FormData (JSON) (Guarda datos de formulario)
     const dataFormulario = new FormData(document.getElementById('formContacto'));
 
-    // Realizar el envío de dataFormulario utilizando "fetch" con 'POST', a la ruta de la app de flask usada para enviar una nueva entrada en la tabla "mensajes" de la Base de Datos
-    // fetch se queda esperando una respuesta (response)
-    fetch('http://127.0.0.1:5000/mensajes', {
+    fetch('https://subtrooper14.pythonanywhere.com/mensajes', {
     method: 'POST',
-    body: dataFormulario                              // Aclaro que envío en el body a la variable dataFormulario
+    body: dataFormulario
     })
     .then(response => {
     if (response.ok) {
         // Ocultar formulario
         document.getElementById('formContacto').style.display = 'none'; 
-        // Mostrar el mensaje de "Datos enviados"
         document.getElementById('mensajeEnviado').style.display = 'block';
         
-        // Reiniciar el formulario después de 2 segundos (puedes ajustar el tiempo)
         setTimeout(function() {
-        // Ocultar formulario
+        // Volver a mostrar formulario
         document.getElementById('formContacto').reset();
         document.getElementById('formContacto').style.display = 'block'; 
         document.getElementById('mensajeEnviado').style.display = 'none';
