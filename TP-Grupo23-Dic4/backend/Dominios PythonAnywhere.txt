@@ -1,0 +1,8 @@
+DB Domain: 	subtrooper14.mysql.pythonanywhere-services.com
+DB name:	subtrooper14$clientes
+username:	subtrooper14
+password:	Comision23501
+
+Web App:	subtrooper14.pythonanywhere.com
+		subtrooper14.pythonanywhere.com/mensajes
+		subtrooper14.pythonanywhere.com/mensajes/(id)
