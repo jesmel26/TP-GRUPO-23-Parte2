@@ -14,6 +14,15 @@ document.getElementById('btnTraerMensajes').addEventListener('click', () => {
             else {
                 excur = "Circuito Nocturno";
             }
+
+            msj_leido = 0
+                        if (dato.leido=="0"){
+                msj_leido = "No";
+            }
+            else {
+                msj_leido = "Si";
+            }
+
             const fila = document.createElement('tr');
             fila.innerHTML = `
                 <td>${dato.id}</td>
@@ -22,7 +31,7 @@ document.getElementById('btnTraerMensajes').addEventListener('click', () => {
                 <td>${excur}</td>
                 <td>${dato.fecha_envio}</td>
                 <td>${dato.comentario_cliente}</td>
-                <td>${dato.leido}</td>
+                <td>${msj_leido}</td>
             `;
           tablaBody.appendChild(fila);
         });
