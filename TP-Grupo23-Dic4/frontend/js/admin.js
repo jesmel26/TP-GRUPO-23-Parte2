@@ -54,6 +54,21 @@ document.getElementById('formularioContacto').addEventListener('submit', functio
       method: 'PUT',
       body: dataFormulario
     })
+    .then(response => {
+        if (response.ok) {
+            document.getElementById('formularioContacto').style.display = 'none'; 
+            document.getElementById('respuestaEnviada').style.display = 'block';
+            document.getElementById('respuestaEnviada').style.marginBottom = '15%';
+            setTimeout(function() {
+            // Ocultar formulario
+            document.getElementById('formularioContacto').reset();
+            document.getElementById('formularioContacto').style.display = 'block'; 
+            document.getElementById('respuestaEnviada').style.display = 'none';
+            }, 5000);
+      } else {
+            throw new Error('No se puedo enviar la respuesta');
+      }
+      })
     .then(response => response.json())
     .then(data => {
       console.log('Respuesta del servidor: ', data);
